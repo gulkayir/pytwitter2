@@ -10,12 +10,3 @@ celery
 redis
 
 django-cors-headers
-google-api-core
-google-api-python-client
-google-auth
-google-auth-httplib2
-googleapis-common-protos
-python-twitter
-oauthlib
-httplib2
-facebook-sdk

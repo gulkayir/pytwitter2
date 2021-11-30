@@ -151,4 +151,8 @@ class FavoriteSerializer(serializers.ModelSerializer):
         representation['tweet'] = instance.tweet.text
         return representation
 
+class ParsingSerializer(serializers.Serializer):
+    title = serializers.CharField(max_length=300)
+    # created = serializers.CharField(max_length=300)
+    author = serializers.CharField(max_length=300)
 

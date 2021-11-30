@@ -8,7 +8,7 @@ from drf_yasg.views import get_schema_view
 
 from rest_framework.routers import DefaultRouter
 
-from main.views import TweetViewSet, TagListView, CommentViewSet, LikesViewSet, RatingViewSet
+from main.views import TweetViewSet, TagListView, CommentViewSet, LikesViewSet, RatingViewSet, ParsingView
 
 router = DefaultRouter()
 router.register('tweet', TweetViewSet)
@@ -35,6 +35,8 @@ urlpatterns = [
     path('api/v1/account/', include('account.urls')),
     path('api/v1/', include(router.urls)),
     path('api/v1/categories/', TagListView.as_view()),
+    path('api/v1/parsing/', ParsingView.as_view()),
+    path('chat', include('chat.urls'))
 
 ]
 if settings.DEBUG:

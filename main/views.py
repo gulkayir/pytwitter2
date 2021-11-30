@@ -7,7 +7,7 @@ from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
-
+from .parsing import main
 from .models import *
 
 from .permissions import IsAuthorPermission
@@ -89,4 +89,10 @@ class RatingViewSet(PermissionMixin, viewsets.ModelViewSet):
     queryset = Rating.objects.all()
     serializer_class = RatingSerializer
 
+
+class ParsingView(APIView):
+    def get(self,request):
+        parsing = main()
+        serializer = ParsingSerializer(instance=parsing,many=True).data
+        return Response(serializer)
 

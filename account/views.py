@@ -52,7 +52,7 @@ class LogoutView(APIView):
 
 class ResetPassword(APIView):
     def get(self, request):
-        email = email = request.query_params.get('email')
+        email = request.query_params.get('email')
         User = get_user_model()
         user = get_object_or_404(User, email=email)
         user.is_active = False
